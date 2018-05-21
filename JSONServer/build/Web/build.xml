@@ -1,0 +1,56 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<project name="com.iexceed.appzillonplugins" default="obfuscate" basedir=".">
+
+	<!-- ====================================================================== -->
+	<!-- Build environment properties                                           -->
+	<!-- ====================================================================== -->
+	
+	<property name="maven.obfuscated.dir" value="ObfuscatedJar"/>
+	<property name="maven.obfuscated.file" value="Obfuscation.log"/>
+		
+	<!-- ====================================================================== -->
+	<!-- Cleaning up target                                                     -->
+	<!-- ====================================================================== -->
+
+	<target name="clean" description="Clean the output directory">
+		<delete dir="${maven.obfuscated.dir}"/>
+		<delete file="${maven.obfuscated.file}"/>
+	</target>	
+	
+	<!-- ====================================================================== -->
+	<!-- Obfuscate Appzillon Plugin                                             -->
+	<!-- ====================================================================== -->
+	<target name="obfuscate" depends="mvn_package_plugin" description="Obfuscate Appzillon Plugins">
+		<taskdef resource="proguard/ant/task.properties"
+		classpath="webcontainerLibs/proguardLib/proguard.jar" />
+		<proguard configuration="webcontainerLibs/proguardLib/progaurd.pro"/>
+	</target>
+	
+	<!-- ====================================================================== -->
+	<!-- Maven clean install Appzillon Plugin                                   -->
+	<!-- ====================================================================== -->
+	
+	<condition property="isWindows">
+		<os family="windows" />
+	</condition>
+	
+	<condition property="isUnix">
+		<os family="unix" />
+	</condition>	
+	
+	<target name="mvn_package_plugin" depends="clean, mvn_windows, mvn_unix"/> 
+	
+	<target name="mvn_windows" if="isWindows">
+		<exec dir="." executable="cmd">
+			<arg line="/c mvn -f pom_jar.xml clean package" />
+		</exec>
+	</target>
+	
+	<target name="mvn_unix" if="isUnix">
+		<exec dir="." executable="sh">
+			<arg line="-c 'mvn -f pom_jar.xml clean package'" />
+		</exec>
+	</target>
+		
+</project>

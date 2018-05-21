@@ -1,0 +1,33 @@
+package com.iexceed.appzillon.domain.repository.meta;
+
+import java.util.List;
+
+import org.springframework.data.jpa.repository.JpaRepository;
+import org.springframework.data.jpa.repository.Query;
+import org.springframework.data.repository.query.Param;
+import org.springframework.stereotype.Repository;
+
+import com.iexceed.appzillon.domain.entity.TbAsmiDragDrop;
+import com.iexceed.appzillon.domain.entity.TbAsmiDragDropPK;
+
+/**
+ * 
+ * @author Ripu
+ * This Repository is written for doing all required operation with DB for run time Drag and Drop
+ */
+@Repository
+public interface TbAsmiDragDropRepository extends JpaRepository<TbAsmiDragDrop, TbAsmiDragDropPK>{
+
+	@Query("select tb from TbAsmiDragDrop tb where tb.id.appId =:appId")
+	List<TbAsmiDragDrop> findDragDropByAppId(@Param("appId") String lAppId);
+	
+	@Query("select tb from TbAsmiDragDrop tb where tb.id.parentId =:parentId ORDER BY tb.sequenceNo ASC")
+	List<TbAsmiDragDrop> findByParentId(@Param("parentId") String lParentId);
+	
+	@Query("select tb from TbAsmiDragDrop tb where tb.id.appId =:appId AND tb.id.userId =:userId AND tb.id.screenId =:screenId AND tb.id.layout =:layout")
+	List<TbAsmiDragDrop> findDragDropByAppIdUserIdScreenIdLayout(@Param("appId") String lAppId, @Param("userId") String lUserID, @Param("screenId") String lScreenId
+			, @Param("layout") String lLayout);
+	
+	@Query("select DISTINCT tb.id.parentId from TbAsmiDragDrop tb where tb.id.appId =:appId AND tb.id.userId =:userId AND tb.id.screenId =:screenId AND tb.id.layout =:layout")
+	List<String> findDistinctParentID(@Param("appId") String lAppId, @Param("userId") String lUserID, @Param("screenId") String lScreenId, @Param("layout") String lLayout);
+}

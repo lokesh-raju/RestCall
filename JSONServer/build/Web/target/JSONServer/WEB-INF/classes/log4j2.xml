@@ -1,0 +1,59 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Configuration status="warn">
+	<Properties>
+		<Property name="loghome">
+		</Property>
+	</Properties>
+	<Appenders>
+		<Routing name="RoutingWebLogFile">
+			<Routes pattern="${loghome}">
+				<Route>
+					<RollingFile name="LogFile"
+						fileName="${loghome}/WebContainerLogs/WebContainerLogFile.log"
+						filePattern="${loghome}/WebContainerLogs/WebContainerLogFile-%d{yyyy-MM-dd}-%i.zip">
+						<PatternLayout>
+							<Pattern>%d %p %-40c{1.} %m %n</Pattern>
+						</PatternLayout>
+						<Policies>
+							<TimeBasedTriggeringPolicy interval="1"
+								modulate="true" />
+							<SizeBasedTriggeringPolicy size="4 MB" />
+						</Policies>
+						<DefaultRolloverStrategy max="10"/>
+					</RollingFile>
+				</Route>
+			</Routes>
+		</Routing>
+		<Routing name="RoutingWebErrorLogFile">
+			<Routes pattern="$${ctx:errorLogRouter}">
+				<Route>
+					<RollingFile name="ErrorLogFile"
+						fileName="${ctx:errorLogRouter}/WebContainerErrorLogFile.log"
+						filePattern="${ctx:errorLogRouter}/WebContainerErrorLogFile-%d{yyyy-MM-dd}-%i.zip">
+						<PatternLayout>
+							<Pattern>%d %p %-40c{1.} %m %n</Pattern>
+						</PatternLayout>
+						<Policies>
+							<TimeBasedTriggeringPolicy interval="1"
+								modulate="true" />
+							<SizeBasedTriggeringPolicy size="4 MB" />
+						</Policies>
+						<DefaultRolloverStrategy max="10"/>
+					</RollingFile>
+				</Route>
+			</Routes>
+		</Routing>
+	</Appenders>
+	<Loggers>
+		<AsyncLogger name="com.iexceed.webcontainer" level="DEBUG" additivity="false">
+			<AppenderRef ref="RoutingWebLogFile" level="DEBUG" />
+		</AsyncLogger>
+
+		<AsyncLogger name="com.iexceed.webcontainer.plugins" level="DEBUG" additivity="false">
+			<AppenderRef ref="RoutingWebErrorLogFile" level="DEBUG" />
+		</AsyncLogger>
+		<Root level="DEBUG">
+			<AppenderRef ref="RoutingWebLogFile"/>
+		</Root>
+	</Loggers>
+</Configuration>

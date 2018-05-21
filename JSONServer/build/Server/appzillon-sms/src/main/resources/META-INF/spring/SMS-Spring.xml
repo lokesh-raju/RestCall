@@ -1,0 +1,172 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<beans xmlns="http://www.springframework.org/schema/beans" xmlns:aop="http://www.springframework.org/schema/aop" xmlns:context="http://www.springframework.org/schema/context" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://www.springframework.org/schema/beans              http://www.springframework.org/schema/beans/spring-beans.xsd              http://www.springframework.org/schema/context               http://www.springframework.org/schema/context/spring-context-3.1.xsd               http://www.springframework.org/schema/aop              http://www.springframework.org/schema/aop/spring-aop-3.0.xsd">
+
+<bean class="com.iexceed.appzillon.sms.impl.AuthenticationImpl" id="jsonse_authenticationBean" scope="request">
+<aop:scoped-proxy proxy-target-class="false"/>
+</bean>
+<bean class="com.iexceed.appzillon.sms.impl.SessionManagerImpl" id="jsonse_sesssionManagerBean" scope="request">
+<aop:scoped-proxy proxy-target-class="false"/>
+</bean>
+<bean class="com.iexceed.appzillon.sms.impl.ChangePasswordImpl" id="jsonse_changepwd" scope="request">
+<aop:scoped-proxy proxy-target-class="false"/>
+</bean>
+<bean class="com.iexceed.appzillon.sms.impl.AuthorisationImpl" id="jsonse_authorization" scope="request">
+<aop:scoped-proxy proxy-target-class="false"/>
+</bean>
+<bean class="com.iexceed.appzillon.sms.impl.ReportImpl" id="jsonse_reporter" scope="request">
+<aop:scoped-proxy proxy-target-class="false"/>
+</bean>
+<bean class="com.iexceed.appzillon.sms.impl.ScreenMaintainerImpl" id="jsonse_screen" scope="request">
+<aop:scoped-proxy proxy-target-class="false"/>
+</bean>
+<bean class="com.iexceed.appzillon.sms.impl.UserProfileImpl" id="jsonse_userprofile" scope="request">
+<aop:scoped-proxy proxy-target-class="false"/>
+</bean>
+<bean class="com.iexceed.appzillon.sms.impl.RoleMaintainerImpl" id="jsonse_roleprofile" scope="request">
+<aop:scoped-proxy proxy-target-class="false"/>
+</bean>
+<bean class="com.iexceed.appzillon.sms.impl.AuditLogImpl" id="jsonse_auditLogProfile" scope="request">
+<aop:scoped-proxy proxy-target-class="false"/>
+</bean>
+<bean class="com.iexceed.appzillon.sms.impl.OTAImpl" id="jsonse_otaImplementaionBean" scope="request">
+<aop:scoped-proxy proxy-target-class="false"/>
+</bean>
+<bean class="com.iexceed.appzillon.sms.impl.DeviceMasterImpl" id="jsonse_DeviceMasterProfile" scope="request">
+<aop:scoped-proxy proxy-target-class="false"/>
+</bean>
+<bean class="com.iexceed.appzillon.sms.impl.LoggingImpl" id="jsonse_loggingprofile" scope="request">
+<aop:scoped-proxy proxy-target-class="false"/>
+</bean>
+<bean class="com.iexceed.appzillon.sms.impl.SmsUserDetailImpl" id="jsonse_SmsUserDetailProfile" scope="request">
+<aop:scoped-proxy proxy-target-class="false"/>
+</bean>
+<bean class="com.iexceed.appzillon.sms.impl.BeaconImpl" id="jsonse_beacon" scope="request">
+<aop:scoped-proxy proxy-target-class="false"/>
+</bean>
+<bean class="com.iexceed.appzillon.sms.impl.AugumentedRealityImpl" id="jsonse_ARbean" scope="request">
+<aop:scoped-proxy proxy-target-class="false"/>
+</bean>
+<bean class="com.iexceed.appzillon.sms.impl.DragDropImpl" id="jsonse_dragDropProfile" scope="request">
+<aop:scoped-proxy proxy-target-class="false"/>
+</bean>
+<bean class="com.iexceed.appzillon.sms.impl.TextMessageImpl" id="jsonse_sendSMSbean" scope="request">
+<aop:scoped-proxy proxy-target-class="false"/>
+</bean>
+<bean class="com.iexceed.appzillon.sms.impl.CustomizeImpl" id="jsonse_ICustomizer" scope="request">
+<aop:scoped-proxy proxy-target-class="false"/>
+</bean>
+<bean class="com.iexceed.appzillon.sms.impl.TrackLocationImpl" id="jsonse_ITrackLocation" scope="request">
+<aop:scoped-proxy proxy-target-class="false"/>
+</bean>
+<bean class="com.iexceed.appzillon.sms.impl.CaptchaGenerateImpl" id="jsonse_captchaGenerate" scope="request">
+<aop:scoped-proxy proxy-target-class="false"/>
+</bean>
+<bean class="com.iexceed.appzillon.sms.impl.ClientServerNonceServiceImpl" id="jsonse_nonceGenerate" scope="request">
+<aop:scoped-proxy proxy-target-class="false"/>
+</bean>
+<bean class="com.iexceed.appzillon.sms.handlers.AuthenticationHandler" id="jsonse_smsLoginLogoutRequestHandler">
+<property name="cAuthentication">
+<ref bean="jsonse_authenticationBean"/>
+</property>
+</bean>
+<bean class="com.iexceed.appzillon.sms.handlers.SessionHandler" id="jsonse_sesssionHandlerBean">
+<property name="cSesssionManager">
+<ref bean="jsonse_sesssionManagerBean"/>
+</property>
+</bean>
+<bean class="com.iexceed.appzillon.sms.handlers.ChangePasswordHandler" id="jsonse_smsChangePasswordHandler">
+<property name="cChangepwd">
+<ref bean="jsonse_changepwd"/>
+</property>
+</bean>
+<bean class="com.iexceed.appzillon.sms.handlers.AuthorizationHandler" id="jsonse_smsAuthorizationHandler">
+<property name="cAuthorizaion">
+<ref bean="jsonse_authorization"/>
+</property>
+</bean>
+<bean class="com.iexceed.appzillon.sms.handlers.ReportHandler" id="jsonse_smsReportHandler">
+<property name="cReporter">
+<ref bean="jsonse_reporter"/>
+</property>
+</bean>
+<bean class="com.iexceed.appzillon.sms.handlers.ScreenHandler" id="jsonse_smsScreenHandler">
+<property name="cScreen">
+<ref bean="jsonse_screen"/>
+</property>
+</bean>
+<bean class="com.iexceed.appzillon.sms.handlers.UserProfileHandler" id="jsonse_smsUserProfileHandler">
+<property name="cUserprofile">
+<ref bean="jsonse_userprofile"/>
+</property>
+</bean>
+<bean class="com.iexceed.appzillon.sms.handlers.RoleHandler" id="jsonse_smsRoleProfileHandler">
+<property name="cRoleprofile">
+<ref bean="jsonse_roleprofile"/>
+</property>
+</bean>
+<bean class="com.iexceed.appzillon.sms.handlers.AuditLogHandler" id="jsonse_smsAuditLogHandler">
+<property name="cAuditlog">
+<ref bean="jsonse_auditLogProfile"/>
+</property>
+</bean>
+<bean class="com.iexceed.appzillon.sms.handlers.OTAHandler" id="jsonse_smsOTAHandler">
+<property name="cIOta">
+<ref bean="jsonse_otaImplementaionBean"/>
+</property>
+</bean>
+<bean class="com.iexceed.appzillon.sms.handlers.DeviceMasterHandler" id="jsonse_smsDeviceMaster">
+<property name="cDeviceHandler">
+<ref bean="jsonse_DeviceMasterProfile"/>
+</property>
+</bean>
+<bean class="com.iexceed.appzillon.sms.handlers.LoggingHandler" id="jsonse_smsLoggingHandler">
+<property name="cLogging">
+<ref bean="jsonse_loggingprofile"/>
+</property>
+</bean>
+<bean class="com.iexceed.appzillon.sms.handlers.SmsUserDetailHandler" id="jsonse_smsUserDetail">
+<property name="cSmsUserDetailProfile">
+<ref bean="jsonse_SmsUserDetailProfile"/>
+</property>
+</bean>
+<bean class="com.iexceed.appzillon.sms.handlers.BeaconHandler" id="jsonse_beaconHandler">
+<property name="cBeacon">
+<ref bean="jsonse_beacon"/>
+</property>
+</bean>
+<bean class="com.iexceed.appzillon.sms.handlers.AugumentedRealityHandler" id="jsonse_ARHandler">
+<property name="cARDetails">
+<ref bean="jsonse_ARbean"/>
+</property>
+</bean>
+<bean class="com.iexceed.appzillon.sms.handlers.DragDropHandler" id="jsonse_dragDropHandler">
+<property name="cDragDrop">
+<ref bean="jsonse_dragDropProfile"/>
+</property>
+</bean>
+<bean class="com.iexceed.appzillon.sms.handlers.TextMessageHandler" id="jsonse_sendSMSHandler">
+<property name="sendSMS">
+<ref bean="jsonse_sendSMSbean"/>
+</property>
+</bean>
+<bean class="com.iexceed.appzillon.sms.handlers.CustomizeHandler" id="jsonse_customizeHandler">
+<property name="customize">
+<ref bean="jsonse_ICustomizer"/>
+</property>
+</bean>
+<bean class="com.iexceed.appzillon.sms.handlers.TrackLocationHandler" id="jsonse_trackLocation">
+<property name="trackLocation">
+<ref bean="jsonse_ITrackLocation"/>
+</property>
+</bean>
+<bean class="com.iexceed.appzillon.sms.handlers.CaptchaGenerateHandler" id="jsonse_captchaGenerateHandler">
+<property name="cCaptchaGenerate">
+<ref bean="jsonse_captchaGenerate"/>
+</property>
+</bean>
+<bean class="com.iexceed.appzillon.sms.handlers.ClientServerNonceHandler" id="jsonse_nonceHandler">
+<property name="cClientServerNonce">
+<ref bean="jsonse_nonceGenerate"/>
+</property>
+</bean>
+</beans>

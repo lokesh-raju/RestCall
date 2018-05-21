@@ -1,0 +1,59 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<beans xmlns="http://www.springframework.org/schema/beans" xmlns:camel="http://camel.apache.org/schema/spring" xmlns:util="http://www.springframework.org/schema/util" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://www.springframework.org/schema/util         http://www.springframework.org/schema/util/spring-util.xsd         http://www.springframework.org/schema/beans           http://www.springframework.org/schema/beans/spring-beans.xsd        http://camel.apache.org/schema/spring           http://camel.apache.org/schema/spring/camel-spring.xsd        http://activemq.apache.org/schema/core           http://activemq.apache.org/schema/core/activemq-core.xsd">
+<bean class="com.iexceed.appzillon.services.LOVService" id="LOVService" scope="request"/>
+<bean class="com.iexceed.appzillon.impl.LOVServicesImpl" id="LOVServiceImpl" scope="request"/>
+<bean class="com.iexceed.appzillon.services.otp.OTPValidateNProcessImpl" id="OTPValidateNProcessImpl" scope="request"/>
+<camelContext xmlns="http://camel.apache.org/schema/spring" id="appzillonframeworks">
+<template id="producerTemplate"/>
+<endpoint id="jsonse__jsonse__Customer" uri="http://localhost:9090/api"/>
+</camelContext>
+<bean class="com.iexceed.appzillon.services.HttpService" id="jsonse_jsonse__Customer_service" scope="request"/>
+<bean class="com.iexceed.appzillon.impl.HttpServicesImpl" id="jsonse_jsonse__Customer_impl" scope="request"/>
+<bean class="com.iexceed.appzillon.intf.ExternalInterfaceDtls" id="jsonse_jsonse__Customer_intf" scope="request">
+<property name="beanId" value="jsonse_jsonse__Customer_impl"/>
+<property name="category" value="External"/>
+<property name="sessionReq" value="Y"/>
+</bean>
+<bean class="org.springframework.beans.factory.config.PropertyPlaceholderConfigurer">
+<property name="placeholderPrefix" value="${APZ:"/>
+<property name="placeholderSuffix" value="}"/>
+<property name="location" value="classpath:Env.properties"/>
+</bean>
+<camel:sslContextParameters id="sslContextParameters">
+<camel:keyManagers keyPassword="">
+<camel:keyStore password="" resource="" type="JKS"/>
+</camel:keyManagers>
+<camel:trustManagers>
+<camel:keyStore password="" resource="" type="JKS"/>
+</camel:trustManagers>
+</camel:sslContextParameters>
+<bean class="com.iexceed.appzillon.services.MailService" id="jsonse_appzillonMailRequest_service" scope="request"/>
+<bean class="com.iexceed.appzillon.impl.MailServicesImpl" id="jsonse_appzillonMailRequest_impl" scope="request"/>
+<bean class="com.iexceed.appzillon.intf.ExternalInterfaceDtls" id="jsonse_appzillonMailRequest_intf">
+<property name="beanId" value="jsonse_appzillonMailRequest_impl"/>
+<property name="category" value="External"/>
+<property name="sessionReq" value="Y"/>
+</bean>
+<bean class="com.iexceed.appzillon.impl.TextMessagingServicesImpl" id="jsonse_sendSMSImpl" scope="request"/>
+<bean class="com.iexceed.appzillon.impl.TranslationBeanImpl" id="jsonse_paramImpl" scope="request"/>
+<bean class="com.iexceed.appzillon.impl.NLPImpl" id="jsonse_NLPImpl" scope="request"/>
+<bean class="com.iexceed.appzillon.impl.ConversationalUIImpl" id="jsonse_ConversationalUIImpl" scope="request"/>
+<bean class="com.iexceed.appzillon.dao.MailDetails" id="jsonse_appzillonMailRequest" scope="request">
+<property name="from" value=""/>
+<property name="password" value=""/>
+<property name="hostName" value=""/>
+<property name="portNumber" value=""/>
+<property name="userName" value=""/>
+<property name="protocol" value=""/>
+</bean>
+<bean class="com.iexceed.appzillon.dao.HttpDetails" id="jsonse_jsonse__Customer" scope="request">
+<property name="callType" value="GET"/>
+<property name="responseType" value="JSON"/>
+<property name="requestType" value="JSON"/>
+<property name="payLoadType" value="application/json"/>
+<property name="headerNode" value=""/>
+<property name="headerAttributes" value=""/>
+<property name="SSLRequired" value="N"/>
+<property name="timeOut" value="0"/>
+</bean>
+</beans>

@@ -1,0 +1,48 @@
+<project xmlns="http://maven.apache.org/POM/4.0.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+	xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
+	
+	<parent>
+	  	<groupId>com.iexceed.appzillon</groupId>
+  		<artifactId>AppzillonServer</artifactId>
+  		<version>3.5.4</version>
+	</parent>
+	<modelVersion>4.0.0</modelVersion>
+	<artifactId>appzillon-notification</artifactId>
+	<packaging>jar</packaging>
+	<name>appzillon-notification</name>
+	<url>http://maven.apache.org</url>
+
+	<dependencies>
+		<dependency>
+			<groupId>junit</groupId>
+			<artifactId>junit</artifactId>
+			<version>3.8.1</version>
+			<scope>test</scope>
+		</dependency>
+		<dependency>
+			<groupId>net.rim.pushsdk</groupId>
+			<artifactId>pap</artifactId>
+			<version>1.1.0.16</version>
+			<scope>system</scope>
+			<systemPath>${basedir}/../appzillon-server/src/main/webapp/WEB-INF/lib/pap-1.1.0.16.jar</systemPath>
+		</dependency>
+		<dependency>
+			<groupId>net.rim.pushsdk</groupId>
+			<artifactId>commons-pushsdk</artifactId>
+			<version>1.1.0.16</version>
+			<scope>system</scope>
+			<systemPath>${basedir}/../appzillon-server/src/main/webapp/WEB-INF/lib/commons-pushsdk-1.1.0.16.jar</systemPath>
+		</dependency>
+		<dependency>
+			<groupId>com.iexceed.appzillon</groupId>
+			<artifactId>appzillon-domain</artifactId>
+			<version>${appzillon.version}</version>
+		</dependency>
+		<dependency>
+			<groupId>com.iexceed.appzillon</groupId>
+			<artifactId>appzillon-commons-utils</artifactId>
+			<version>${appzillon.version}</version>
+			<type>jar</type>
+		</dependency>
+	</dependencies>
+</project>

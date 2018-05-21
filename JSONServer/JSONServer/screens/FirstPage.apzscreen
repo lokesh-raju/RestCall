@@ -1,0 +1,1 @@
+{"typeclass":"SCREEN","name":"FirstPage","type":"SCREEN","childs":[],"screendescription":"New Screen","scrcustomize":"N","screentype":"MAIN","displayname":"FirstPage","interfaces":[{"name":"Customer","request":"Y","response":"Y","fault":"N"}],"id":[{"devicegroup":"All","portraitlo":"NewLayout","landscapelo":"NewLayout"}]}

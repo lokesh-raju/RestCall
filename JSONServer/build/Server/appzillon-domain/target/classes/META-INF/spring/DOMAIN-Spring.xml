@@ -1,0 +1,28 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<beans xmlns="http://www.springframework.org/schema/beans" xmlns:context="http://www.springframework.org/schema/context" xmlns:jee="http://www.springframework.org/schema/jee" xmlns:jpa="http://www.springframework.org/schema/data/jpa" xmlns:mvc="http://www.springframework.org/schema/mvc" xmlns:tx="http://www.springframework.org/schema/tx" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://www.springframework.org/schema/beans              http://www.springframework.org/schema/beans/spring-beans.xsd              http://www.springframework.org/schema/data/jpa              http://www.springframework.org/schema/data/jpa/spring-jpa.xsd              http://www.springframework.org/schema/tx               http://www.springframework.org/schema/tx/spring-tx-3.1.xsd              http://www.springframework.org/schema/context               http://www.springframework.org/schema/context/spring-context-3.1.xsd              http://www.springframework.org/schema/mvc              http://www.springframework.org/schema/mvc/spring-mvc-3.1.xsd              http://www.springframework.org/schema/jee               http://www.springframework.org/schema/jee/spring-jee-3.1.xsd">
+
+    <context:annotation-config/>
+    <tx:annotation-driven/>
+    <context:component-scan base-package="com.iexceed.appzillon.domain.service"/>
+    <context:component-scan base-package="com.iexceed.appzillon.domain"/>
+    <bean class="org.springframework.orm.jpa.LocalContainerEntityManagerFactoryBean" id="entityManagerFactory">
+        <property name="persistenceUnitName" value="appzillon-domain"/>
+        <property name="jpaVendorAdapter">
+            <bean class="org.springframework.orm.jpa.vendor.HibernateJpaVendorAdapter"/>
+        </property>
+        <property name="persistenceProviderClass" value="org.hibernate.ejb.HibernatePersistence"/>
+    </bean>
+    
+    
+    <bean class="org.springframework.dao.annotation.PersistenceExceptionTranslationPostProcessor" id="persistenceExceptionTranslationPostProcessor"/>
+
+    <bean class="org.springframework.orm.jpa.JpaTransactionManager" id="transactionManager">
+        <property name="entityManagerFactory" ref="entityManagerFactory"/>
+        <qualifier value="appzillonadmin"/>
+    </bean>
+    
+
+    <jpa:repositories base-package="com.iexceed.appzillon.domain.repository.admin" entity-manager-factory-ref="entityManagerFactory"/>
+    <jpa:repositories base-package="com.iexceed.appzillon.domain.repository.meta" entity-manager-factory-ref="entityManagerFactory"/>
+
+</beans>

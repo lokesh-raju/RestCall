@@ -1,0 +1,102 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<persistence xmlns="http://java.sun.com/xml/ns/persistence" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" version="2.0" xsi:schemaLocation="http://java.sun.com/xml/ns/persistence http://java.sun.com/xml/ns/persistence/persistence_2_0.xsd">
+	<persistence-unit name="appzillon-domain" transaction-type="RESOURCE_LOCAL">
+		<provider>org.hibernate.ejb.HibernatePersistence</provider>
+		<non-jta-data-source>java:comp/env/jdbc/AppzillonServerDS</non-jta-data-source>
+		<class>com.iexceed.appzillon.domain.entity.history.TbAshsUserPasswords</class>
+		<class>com.iexceed.appzillon.domain.entity.TbAslgTxnDetail</class>
+		<class>com.iexceed.appzillon.domain.entity.TbAsmiIntfMaster</class>
+		<class>com.iexceed.appzillon.domain.entity.TbAsmiRoleIntf</class>
+		<class>com.iexceed.appzillon.domain.entity.TbAsmiRoleMaster</class>
+		<class>com.iexceed.appzillon.domain.entity.TbAsmiRoleScr</class>
+		<class>com.iexceed.appzillon.domain.entity.TbAsmiScrMaster</class>
+		<class>com.iexceed.appzillon.domain.entity.TbAsmiUser</class>
+		<class>com.iexceed.appzillon.domain.entity.TbAsmiUserDevices</class>
+		<class>com.iexceed.appzillon.domain.entity.TbAsmiUserRole</class>
+		<class>com.iexceed.appzillon.domain.entity.TbAsmiSmsUser</class>
+		<class>com.iexceed.appzillon.domain.entity.TbAstpLastLogin</class>
+		<class>com.iexceed.appzillon.domain.entity.TbAsmiDeviceMaster</class>
+		<class>com.iexceed.appzillon.domain.entity.TbAslgAuditLog</class>
+		<class>com.iexceed.appzillon.domain.entity.TbAslgSmsTxn</class>
+  		<class>com.iexceed.appzillon.domain.entity.TbAslgUssdTxn</class>
+  		<class>com.iexceed.appzillon.domain.entity.TbAslgTxtMslgLog</class>
+		<class>com.iexceed.appzillon.domain.entity.TbAsmiControlsMaster</class>
+  		<class>com.iexceed.appzillon.domain.entity.TbAsmiRoleControls</class>
+  		<class>com.iexceed.appzillon.domain.entity.TbAsmiSecurityParams</class>
+  		<class>com.iexceed.appzillon.domain.entity.TbAsmiUserAppAccess</class>
+  		<!-- Added history table entity		 -->
+  		<class>com.iexceed.appzillon.domain.entity.history.TbAshsSmsUser</class>
+  		<class>com.iexceed.appzillon.domain.entity.history.TbAshsUser</class>
+  		<class>com.iexceed.appzillon.domain.entity.history.TbAshsUserDevices</class>
+  		<class>com.iexceed.appzillon.domain.entity.history.TbAshsUserRole</class>
+  		<class>com.iexceed.appzillon.domain.entity.history.TbAshsSecurityParams</class>
+  			<class>com.iexceed.appzillon.domain.entity.history.TbAshsRoleScr</class>
+  		<class>com.iexceed.appzillon.domain.entity.history.TbAshsRoleControls</class>
+  		<class>com.iexceed.appzillon.domain.entity.history.TbAshsRoleIntf</class>
+  		<class>com.iexceed.appzillon.domain.entity.history.TbAshsRoleMaster</class>
+  		<class>com.iexceed.appzillon.domain.entity.history.TbAshsUserAppAccess</class>
+  		<!--  Temp -->
+		<!-- <class>com.iexceed.appzillon.domain.entity.TbAsmiLovQueries</class> -->
+		<class>com.iexceed.appzillon.domain.entity.TbAslgJmsReqResp</class>
+		<class>com.iexceed.appzillon.domain.entity.TbAsmiAppMaster</class>
+		<class>com.iexceed.appzillon.domain.entity.VwLoginReport</class>
+		<class>com.iexceed.appzillon.domain.entity.VwActiveSession</class>
+		<class>com.iexceed.appzillon.domain.entity.VwActiveInactiveUser</class>
+		<class>com.iexceed.appzillon.domain.entity.VwLocationDetail</class>
+		<class>com.iexceed.appzillon.domain.entity.VwLatLonDetail</class>
+		<class>com.iexceed.appzillon.domain.entity.VwCustomerDetail</class>
+		<class>com.iexceed.appzillon.domain.entity.VwCustomerReport</class>
+		<class>com.iexceed.appzillon.domain.entity.VwTxnAppUsage</class>
+		<!-- Micro App changes -->
+		<class>com.iexceed.appzillon.domain.entity.VwAsmiDeviceGrp</class>
+		<!--<class>com.iexceed.appzillon.domain.entity.VwAsmiScreen</class>-->
+		<class>com.iexceed.appzillon.domain.entity.TbAsczScreenLayouts</class>
+		<class>com.iexceed.appzillon.domain.entity.TbAsczTemplateObjects</class>
+		<!--<class>com.iexceed.appzillon.domain.entity.TbAsmiLayoutDesign</class>-->
+		<class>com.iexceed.appzillon.domain.entity.TbAsmiScreenLayout</class>
+		<class>com.iexceed.appzillon.domain.entity.VwAsmiMicroapp</class>
+		<class>com.iexceed.appzillon.domain.entity.VwAsmiNanoapp</class>
+		<class>com.iexceed.appzillon.domain.entity.TbAstpSessionStorage</class>
+		<class>com.iexceed.appzillon.domain.entity.TbDbtpTxnMaster</class>
+        <class>com.iexceed.appzillon.domain.entity.TbAslgDeviceLocation</class>
+        <class>com.iexceed.appzillon.domain.entity.TbAsmiCaptchaDtls</class>
+        <class>com.iexceed.appzillon.domain.entity.TbAslgCnvUITxnLog</class>
+        <class>com.iexceed.appzillon.domain.entity.TbAsmiCnvUIMaster</class>
+        <class>com.iexceed.appzillon.domain.entity.TbAsmiCnvUIMasterPK</class>
+        <class>com.iexceed.appzillon.domain.entity.TbAsmiCnvUIScr</class>
+        <class>com.iexceed.appzillon.domain.entity.TbAsmiCnvUIScrPK</class>
+        <class>com.iexceed.appzillon.domain.entity.TbAsmiDlgMaster</class>
+        <class>com.iexceed.appzillon.domain.entity.TbAsmiDlgMasterPK</class>
+        <class>com.iexceed.appzillon.domain.entity.TbAsmiCsNonceDetail</class>
+		<class>com.iexceed.appzillon.domain.entity.TbAslgFmwTxnDetail</class>
+		<!-- Common -->
+		<!-- <class>com.iexceed.appzillon.domain.entity.TbAstpSeqGen</class> -->
+
+	<class>com.iexceed.appzillon.domain.entity.TbAsmiOsDtls</class>
+<class>com.iexceed.appzillon.domain.entity.TbAsmiAppDtls</class>
+<class>com.iexceed.appzillon.domain.entity.TbAsnfTxnGroup</class>
+<class>com.iexceed.appzillon.domain.entity.TbAsnfTxnDevice</class>
+<class>com.iexceed.appzillon.domain.entity.TbAsnfGroupMaster</class>
+<class>com.iexceed.appzillon.domain.entity.TbAsnfGroupDevice</class>
+<class>com.iexceed.appzillon.domain.entity.TbAsnfDevicesMaster</class>
+<class>com.iexceed.appzillon.domain.entity.TbAsnfTxnLog</class>
+<class>com.iexceed.appzillon.domain.entity.TbAsnfTxnMaster</class>
+<class>com.iexceed.appzillon.domain.entity.TbAstpWorkflowDet</class>
+<class>com.iexceed.appzillon.domain.entity.TbAsfsFileDetails</class>
+<class>com.iexceed.appzillon.domain.entity.TbAsmiAppFiles</class>
+<class>com.iexceed.appzillon.domain.entity.TbAsmiAppUser</class>
+<class>com.iexceed.appzillon.domain.entity.TbAsmiAppOsVersion</class>
+<class>com.iexceed.appzillon.domain.entity.history.TbAshsWorkflowDet</class>
+<class>com.iexceed.appzillon.domain.entity.TbAstpBeacon</class>
+<class>com.iexceed.appzillon.domain.entity.TbAstpOtpEngine</class>
+<class>com.iexceed.appzillon.domain.entity.TbAstpARMaster</class>
+<class>com.iexceed.appzillon.domain.entity.TbAsmiJobExpression</class>
+<class>com.iexceed.appzillon.domain.entity.TbAsmiJobMaster</class>
+<class>com.iexceed.appzillon.domain.entity.TbAsmiLovQueries</class>
+<class>com.iexceed.appzillon.domain.entity.TbAstpSeqGen</class>
+<class>com.iexceed.appzillon.domain.entity.VwMessageNotifyStat</class>
+</persistence-unit>
+
+	<!--  Persistence Unit for App Meta Data -->
+	
+</persistence>

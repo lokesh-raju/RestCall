@@ -1,0 +1,19 @@
+package com.iexceed.appzillon.domain.repository.admin;
+
+import com.iexceed.appzillon.domain.entity.TbAsmiLayoutDesign;
+import com.iexceed.appzillon.domain.entity.TbAsmiLayoutDesignPK;
+
+import java.util.List;
+
+import org.springframework.data.jpa.repository.JpaRepository;
+import org.springframework.data.jpa.repository.Query;
+import org.springframework.data.repository.query.Param;
+
+/**
+ * Created by diganta.kumar@i-exceed.com on 10/7/17 8:53 PM
+ */
+public interface TbAsmiLayoutDesignRepository extends JpaRepository<TbAsmiLayoutDesign, TbAsmiLayoutDesignPK> {
+
+	@Query("select tb.id.screenId,tb.id.designId,tb.designName,tb.designIcon from TbAsmiLayoutDesign tb where tb.id.appId=:appId AND tb.id.screenId=:screenId AND tb.id.layoutId=:layOutId")
+	List<Object[]> findScreenDesigns(@Param("appId") String appId, @Param("screenId") String screenId,@Param("layOutId") String layOutId);
+}

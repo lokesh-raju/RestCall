@@ -1,0 +1,61 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Configuration status="error" name="Appzillon">
+	<Properties>
+		<Property name="loghome">D:\\appzillion\\jsonserver\\logs\\
+		</Property>
+	</Properties>
+	<Appenders>
+		<Routing name="AppzillonServerLogFile">
+			<Routes pattern="$${ctx:logRouter}/">
+				<Route>
+					<RollingFile name="MainLogFile"
+						fileName="${loghome}/${ctx:logRouter}/MainLogFile.log"
+						filePattern="${loghome}/${ctx:logRouter}/%d{dd-MM-yyyy}-MainLogFile-%i.log.zip">
+						<PatternLayout>
+							<Pattern>%d %p %-40c{1.} [$${ctx:reqRef}] %m%n </Pattern>
+						</PatternLayout>
+						<Policies>
+							<TimeBasedTriggeringPolicy interval="1"
+								modulate="true" />
+							<SizeBasedTriggeringPolicy size="4 MB" />
+						</Policies>
+						<DefaultRolloverStrategy max="10" />
+					</RollingFile>
+				</Route>
+			</Routes>
+		</Routing>
+		
+		<Routing name="RoutingDeviceErrorLogFile">
+			<Routes pattern="$${ctx:errorLogRouter}/">
+				<Route>
+					<RollingFile name="MainLogFile"
+						fileName="${loghome}/${ctx:errorLogRouter}/DeviceErrorLogFile.log"
+						filePattern="${loghome}/${ctx:errorLogRouter}/%d{dd-MM-yyyy}-DeviceErrorLogFile-%i.log.zip">
+						<PatternLayout>
+							<Pattern>%d %p %-40c{1.} [$${ctx:reqRef}] %m%n </Pattern>
+						</PatternLayout>
+						<Policies>
+							<TimeBasedTriggeringPolicy interval="1"
+								modulate="true" />
+							<SizeBasedTriggeringPolicy size="4 MB" />
+						</Policies>
+						<DefaultRolloverStrategy max="10" />
+					</RollingFile>
+				</Route>
+			</Routes>
+		</Routing>
+	</Appenders>
+	<Loggers>
+		<AsyncLogger name="com.iexceed.appzillon.rest" level="DEBUG">
+			<AppenderRef ref="AppzillonServerLogFile" level="DEBUG" />
+		</AsyncLogger>
+		
+		<AsyncLogger name="com.iexceed.appzillon.errorLogging" level="ALL">
+			<AppenderRef ref="RoutingDeviceErrorLogFile" level="ALL" />
+		</AsyncLogger>
+		
+		<Root level="DEBUG">
+			<AppenderRef ref="AppzillonServerLogFile" />
+		</Root>
+	</Loggers>
+</Configuration>

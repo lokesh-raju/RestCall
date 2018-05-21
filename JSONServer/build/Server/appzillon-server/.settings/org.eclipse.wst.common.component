@@ -1,0 +1,32 @@
+<?xml version="1.0" encoding="UTF-8"?><project-modules id="moduleCoreId" project-version="1.5.0">
+    <wb-module deploy-name="AppzillonServer">
+        <wb-resource deploy-path="/" source-path="/target/m2e-wtp/web-resources"/>
+        <wb-resource deploy-path="/" source-path="/src/main/webapp" tag="defaultRootSource"/>
+        <wb-resource deploy-path="/WEB-INF/classes" source-path="/src/main/java"/>
+        <wb-resource deploy-path="/WEB-INF/classes" source-path="/src/main/resources"/>
+        <dependent-module archiveName="appzillon-commons-utils-3.2.beta.jar" deploy-path="/WEB-INF/lib" handle="module:/resource/appzillon-commons-utils/appzillon-commons-utils">
+            <dependency-type>uses</dependency-type>
+        </dependent-module>
+        <dependent-module archiveName="appzillon-core-3.2.beta.jar" deploy-path="/WEB-INF/lib" handle="module:/resource/appzillon-core/appzillon-core">
+            <dependency-type>uses</dependency-type>
+        </dependent-module>
+        <dependent-module archiveName="appzillon-logging-3.2.beta.jar" deploy-path="/WEB-INF/lib" handle="module:/resource/appzillon-logging/appzillon-logging">
+            <dependency-type>uses</dependency-type>
+        </dependent-module>
+        <dependent-module archiveName="appzillon-domain-3.2.beta.jar" deploy-path="/WEB-INF/lib" handle="module:/resource/appzillon-domain/appzillon-domain">
+            <dependency-type>uses</dependency-type>
+        </dependent-module>
+        <dependent-module archiveName="appzillon-frameworks-3.2.beta.jar" deploy-path="/WEB-INF/lib" handle="module:/resource/appzillon-frameworks/appzillon-frameworks">
+            <dependency-type>uses</dependency-type>
+        </dependent-module>
+        <dependent-module archiveName="appzillon-notification-3.2.beta.jar" deploy-path="/WEB-INF/lib" handle="module:/resource/appzillon-notification/appzillon-notification">
+            <dependency-type>uses</dependency-type>
+        </dependent-module>
+        <dependent-module archiveName="appzillon-scheduler-3.2.beta.jar" deploy-path="/WEB-INF/lib" handle="module:/resource/appzillon-scheduler/appzillon-scheduler">
+            <dependency-type>uses</dependency-type>
+        </dependent-module>
+        <property name="context-root" value="AppzillonServer"/>
+        <property name="java-output-path" value="/appzillon-server/target/classes"/>
+        <property name="component.exclusion.patterns" value="WEB-INF/lib/servlet-api-2.5.jar,WEB-INF/lib/geronimo-servlet_3.0_spec-1.0.jar,WEB-INF/lib/javaee-api-6.0.jar,WEB-INF/lib/wsdl4j.jar,WEB-INF/lib/xmlParserAPIs-2.0.2.jar,WEB-INF/lib/mysql-connector-java-5.1.6.jar,WEB-INF/lib/jaxb-impl-2.1.jar,WEB-INF/lib/jaxb-impl-2.2.3-1.jar,WEB-INF/lib/xercesImpl-2.6.2.jar,WEB-INF/lib/javax.comm-1.0.0.jar,WEB-INF/lib/javaee-web-api-7.0.jar,WEB-INF/lib/javaee-api-6.0-5.jar,WEB-INF/lib/javaee-api-7.0.jar,WEB-INF/lib/org.apache.commons.codec-1.3.0.jar,WEB-INF/lib/bcprov-jdk14-1.38.jar,WEB-INF/lib/bcprov-jdk14-138.jar,WEB-INF/lib/bcmail-jdk14-138.jar,WEB-INF/lib/geronimo-servlet_2.5_spec-1.2.jar"/>
+    </wb-module>
+</project-modules>
